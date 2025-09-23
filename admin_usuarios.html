@@ -9,118 +9,147 @@
 <body>
 
 <div class="contenedor">
-<!-- Barra lateral -->
-    <div class="barra-lateral">
-      <img src="Imagenes/logos/Recurso 1.png" alt="Logo BarberTech" class="logo">
-      <a href="admin_inicio.html" class="boton-menu"><img src="Imagenes/iconos/inicio.svg" alt=""> Inicio</a>
-      <a href="admin_usuarios.html" class="boton-menu activado"><img src="Imagenes/iconos/Usuarios.png" alt=""> Usuarios</a>
-      <a href="admin_servicios.html" class="boton-menu"><img src="Imagenes/iconos/Servicios.png" alt=""> Servicios</a>
-      <a href="admin_reportes.html" class="boton-menu"><img src="Imagenes/iconos/reportes.png" alt=""> Reportes</a>
-      <a class="cerrar-sesion" href="login.html">Cerrar sesión</a>
-    </div>
+  <!-- Barra lateral -->
+  <div class="barra-lateral">
+    <img src="Imagenes/logos/Recurso 1.png" alt="Logo BarberTech" class="logo">
 
-<!-- Contenido principal -->
-    <div class="principal">
-      <div class="encabezado">
-        <h2>Gestión de Usuarios</h2>
-        <img src="Imagenes/iconos/perfil.png" alt="Perfil" width="100">
-      </div>
+    <a href="admin_inicio.html" class="boton-menu">
+      <img src="Imagenes/iconos/inicio.svg" alt=""> Inicio
+    </a>
 
-<!-- Estadísticas -->
-      <div class="estadisticas">
-        <div class="card-estadistica"><span class="numero" id="activos">0</span><p>Usuarios Activos</p></div>
-        <div class="card-estadistica"><span class="numero" id="total">0</span><p>Histórico de Usuarios</p></div>
-        <div class="card-estadistica"><span class="numero" id="clientes">0</span><p>Clientes</p></div>
-        <div class="card-estadistica"><span class="numero" id="barberos">0</span><p>Barberos</p></div>
-      </div>
-
-<!-- Filtro -->
-      <div class="filtro">
-        <label for="rol">Filtrar por rol:</label>
-        <select id="rol" onchange="filtrarUsuarios()">
-          <option value="Todos">Todos</option>
-          <option value="Barbero">Barberos</option>
-          <option value="Cliente">Clientes</option>
-        </select>
-      </div>
-
-<!-- Tabla de usuarios -->
-      <div class="tabla-contenedor">
-        <table>
-          <thead>
-            <tr><th>Nombre</th><th>Rol</th><th>Estado</th><th>Acciones</th></tr>
-          </thead>
-          <tbody id="tabla-usuarios"></tbody>
-        </table>
+    <!-- Submenú Usuarios -->
+    <div class="submenu">
+      <input type="radio" id="usuarios-toggle" name="menu">
+      <label for="usuarios-toggle" class="boton-menu activado">
+        <img src="Imagenes/iconos/Usuarios.png" alt=""> Usuarios
+      </label>
+      <div class="submenu-opciones">
+        <a href="admin_clientes.html" class="sub-item">Clientes</a>
+        <a href="admin_barberos.html" class="sub-item">Barberos</a>
       </div>
     </div>
+
+    <!-- Submenú Servicios -->
+    <div class="submenu">
+      <input type="radio" id="servicios-toggle" name="menu">
+      <label for="servicios-toggle" class="boton-menu">
+        <img src="Imagenes/iconos/Servicios.png" alt=""> Servicios
+      </label>
+      <div class="submenu-opciones">
+        <a href="admin_cortes.html" class="sub-item">Cortes</a>
+        <a href="admin_productos.html" class="sub-item">Productos</a>
+      </div>
+    </div>
+
+    <!-- Submenú Reportes -->
+    <div class="submenu">
+      <input type="radio" id="reportes-toggle" name="menu">
+      <label for="reportes-toggle" class="boton-menu">
+        <img src="Imagenes/iconos/reportes.png" alt=""> Reportes
+      </label>
+      <div class="submenu-opciones">
+        <a href="admin_ventas.html" class="sub-item">Ventas</a>
+        <a href="admin_asistencia.html" class="sub-item">Asistencia</a>
+      </div>
+    </div>
+
+    <a class="cerrar-sesion" href="login.html">Cerrar sesión</a>
   </div>
 
-  <script>
-    // Datos de prueba
-    const usuarios = [
-      { nombre: "Felipe Nieto", rol: "Barbero", estado: "Activo" },
-      { nombre: "Nicolas Guerrero", rol: "Barbero", estado: "Activo" },
-      { nombre: "Sebastian Sanchez", rol: "Barbero", estado: "Inactivo" },
-      { nombre: "Valentina Diaz", rol: "Barbero", estado: "Activo" },
-      { nombre: "Alfredo Becerra", rol: "Cliente", estado: "Activo" },
-      { nombre: "Messi Nazario", rol: "Cliente", estado: "Activo" },
-      { nombre: "James Cuadrado", rol: "Cliente", estado: "Inactivo" },
-      { nombre: "Dairo Ospina", rol: "Cliente", estado: "Activo" }
-    ];
+  <!-- Contenido principal -->
+  <div class="principal">
+    <div class="encabezado">
+      <h2>Gestión de Usuarios</h2>
+      <img src="Imagenes/iconos/perfil.png" alt="Perfil" width="100">
+    </div>
 
-    function crearFila(usuario) {
-      const tr = document.createElement("tr");
-      tr.innerHTML = `
-        <td>${usuario.nombre}</td>
-        <td>${usuario.rol}</td>
-        <td>${usuario.estado}</td>
-        <td><button class="boton-accion">Editar</button></td>
-      `;
-      return tr;
-    }
+    <!-- Estadísticas -->
+    <div class="estadisticas">
+      <div class="card-estadistica"><span class="numero" id="activos">0</span><p>Usuarios Activos</p></div>
+      <div class="card-estadistica"><span class="numero" id="total">0</span><p>Histórico de Usuarios</p></div>
+      <div class="card-estadistica"><span class="numero" id="clientes">0</span><p>Clientes</p></div>
+      <div class="card-estadistica"><span class="numero" id="barberos">0</span><p>Barberos</p></div>
+    </div>
 
-    function mostrarUsuarios(lista) {
-      const tbody = document.getElementById("tabla-usuarios");
-      tbody.innerHTML = "";
-      lista.forEach(u => tbody.appendChild(crearFila(u)));
-    }
+    <!-- Tabla de usuarios -->
+    <div class="tabla-contenedor">
+      <table>
+        <thead>
+          <tr><th>Nombre</th><th>Rol</th><th>Estado</th><th>Acciones</th></tr>
+        </thead>
+        <tbody id="tabla-usuarios"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
-    function filtrarUsuarios() {
-      const rol = document.getElementById("rol").value;
-      if (rol === "Todos") {
-        mostrarUsuarios(usuarios);
-      } else {
-        mostrarUsuarios(usuarios.filter(u => u.rol === rol));
-      }
-    }
+<script>
+  // Datos de prueba
+  const usuarios = [
+    { nombre: "Felipe Nieto", rol: "Barbero", estado: "Activo" },
+    { nombre: "Nicolas Guerrero", rol: "Barbero", estado: "Activo" },
+    { nombre: "Sebastian Sanchez", rol: "Barbero", estado: "Inactivo" },
+    { nombre: "Valentina Diaz", rol: "Barbero", estado: "Activo" },
+    { nombre: "Alfredo Becerra", rol: "Cliente", estado: "Activo" },
+    { nombre: "Messi Nazario", rol: "Cliente", estado: "Activo" },
+    { nombre: "James Cuadrado", rol: "Cliente", estado: "Inactivo" },
+    { nombre: "Dairo Ospina", rol: "Cliente", estado: "Activo" }
+  ];
 
-    // Estadísticas
-    const estadisticas = {
-      activos: usuarios.filter(u => u.estado === "Activo").length,
-      total: usuarios.length,
-      clientes: usuarios.filter(u => u.rol === "Cliente").length,
-      barberos: usuarios.filter(u => u.rol === "Barbero").length
-    };
+  function crearFila(usuario) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${usuario.nombre}</td>
+      <td>${usuario.rol}</td>
+      <td>${usuario.estado}</td>
+      <td><button class="boton-accion">Editar</button></td>
+    `;
+    return tr;
+  }
 
-    function animarValor(id, inicio, fin, duracion) {
-      const elemento = document.getElementById(id);
-      let tiempoInicio = null;
-      function paso(tiempo) {
-        if (!tiempoInicio) tiempoInicio = tiempo;
-        const progreso = Math.min((tiempo - tiempoInicio) / duracion, 1);
-        elemento.innerText = Math.floor(progreso * (fin - inicio) + inicio);
-        if (progreso < 1) window.requestAnimationFrame(paso);
-      }
-      window.requestAnimationFrame(paso);
-    }
-    document.addEventListener("DOMContentLoaded", () => {
+  function mostrarUsuarios(lista) {
+    const tbody = document.getElementById("tabla-usuarios");
+    tbody.innerHTML = "";
+    lista.forEach(u => tbody.appendChild(crearFila(u)));
+  }
+
+  function filtrarUsuarios() {
+    const rol = document.getElementById("rol").value;
+    if (rol === "Todos") {
       mostrarUsuarios(usuarios);
-      animarValor("activos", 0, estadisticas.activos, 1500);
-      animarValor("total", 0, estadisticas.total, 1500);
-      animarValor("clientes", 0, estadisticas.clientes, 1500);
-      animarValor("barberos", 0, estadisticas.barberos, 1500);
-    });
-  </script>
+    } else {
+      mostrarUsuarios(usuarios.filter(u => u.rol === rol));
+    }
+  }
+
+  // Estadísticas
+  const estadisticas = {
+    activos: usuarios.filter(u => u.estado === "Activo").length,
+    total: usuarios.length,
+    clientes: usuarios.filter(u => u.rol === "Cliente").length,
+    barberos: usuarios.filter(u => u.rol === "Barbero").length
+  };
+
+  function animarValor(id, inicio, fin, duracion) {
+    const elemento = document.getElementById(id);
+    let tiempoInicio = null;
+    function paso(tiempo) {
+      if (!tiempoInicio) tiempoInicio = tiempo;
+      const progreso = Math.min((tiempo - tiempoInicio) / duracion, 1);
+      elemento.innerText = Math.floor(progreso * (fin - inicio) + inicio);
+      if (progreso < 1) window.requestAnimationFrame(paso);
+    }
+    window.requestAnimationFrame(paso);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    mostrarUsuarios(usuarios);
+    animarValor("activos", 0, estadisticas.activos, 1500);
+    animarValor("total", 0, estadisticas.total, 1500);
+    animarValor("clientes", 0, estadisticas.clientes, 1500);
+    animarValor("barberos", 0, estadisticas.barberos, 1500);
+  });
+</script>
+
 </body>
 </html>

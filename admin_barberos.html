@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/Admin/AdminUsuarios.css">
+  <title>Administrador - Barberos</title>
+</head>
+<body>
+
+<div class="contenedor">
+  <!-- Barra lateral -->
+  <div class="barra-lateral">
+    <img src="Imagenes/logos/Recurso 1.png" alt="Logo BarberTech" class="logo">
+
+    <a href="admin_inicio.html" class="boton-menu">
+      <img src="Imagenes/iconos/inicio.svg" alt=""> Inicio
+    </a>
+
+    <!-- Submenú Usuarios -->
+    <div class="submenu">
+      <input type="radio" id="usuarios-toggle" name="menu" checked>
+      <label for="usuarios-toggle" class="boton-menu activado">
+        <img src="Imagenes/iconos/Usuarios.png" alt=""> Usuarios
+      </label>
+      <div class="submenu-opciones">
+        <a href="admin_clientes.html" class="sub-item">Clientes</a>
+        <a href="admin_usuarios_barberos.html" class="sub-item activado">Barberos</a>
+      </div>
+    </div>
+
+    <!-- Submenú Servicios -->
+    <div class="submenu">
+      <input type="radio" id="servicios-toggle" name="menu">
+      <label for="servicios-toggle" class="boton-menu">
+        <img src="Imagenes/iconos/Servicios.png" alt=""> Servicios
+      </label>
+      <div class="submenu-opciones">
+        <a href="admin_cortes.html" class="sub-item">Cortes</a>
+        <a href="admin_productos.html" class="sub-item">Productos</a>
+      </div>
+    </div>
+
+    <!-- Submenú Reportes -->
+    <div class="submenu">
+      <input type="radio" id="reportes-toggle" name="menu">
+      <label for="reportes-toggle" class="boton-menu">
+        <img src="Imagenes/iconos/reportes.png" alt=""> Reportes
+      </label>
+      <div class="submenu-opciones">
+        <a href="admin_ventas.html" class="sub-item">Ventas</a>
+        <a href="admin_asistencia.html" class="sub-item">Asistencia</a>
+      </div>
+    </div>
+
+    <a class="cerrar-sesion" href="login.html">Cerrar sesión</a>
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="principal">
+    <div class="encabezado">
+      <h2>Usuario Barberos</h2>
+      <img src="Imagenes/iconos/perfil.png" alt="Perfil" width="100">
+    </div>
+
+    <!-- Estadísticas -->
+    <div class="estadisticas">
+      <div class="card-estadistica"><span class="numero" id="activos">0</span><p>Barberos Activos</p></div>
+      <div class="card-estadistica"><span class="numero" id="historico">0</span><p>Histórico de Barberos</p></div>
+    </div>
+
+    <!-- Buscador -->
+    <div class="busqueda">
+      <h3>Búsqueda de Barberos</h3>
+      <div class="input-busqueda">
+        <input type="text" id="buscar" placeholder="Buscar por nombre...">
+        <button onclick="buscarBarbero()">🔍</button>
+      </div>
+    </div>
+
+    <!-- Tabla de barberos -->
+    <div class="tabla-contenedor">
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th><th>Apellido</th><th>Cédula</th>
+            <th>Correo</th><th>Teléfono</th><th>Especialidad</th><th>Estado</th>
+          </tr>
+        </thead>
+        <tbody id="tabla-barberos"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+  const barberos = [
+    { nombre: "Alfredo", apellido: "Becerra", cedula: "1025548931", correo: "fgomez@gmail.com", telefono: "3108963570", especialidad: "Cortes Clásico", estado: "Activo" },
+    { nombre: "Felipe", apellido: "Nieto", cedula: "1025548000", correo: "felipe@gmail.com", telefono: "3101111111", especialidad: "Fade", estado: "Activo" },
+  ];
+
+  function crearFila(barbero) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${barbero.nombre}</td>
+      <td>${barbero.apellido}</td>
+      <td>${barbero.cedula}</td>
+      <td>${barbero.correo}</td>
+      <td>${barbero.telefono}</td>
+      <td>${barbero.especialidad}</td>
+      <td>${barbero.estado}</td>
+    `;
+    return tr;
+  }
+
+  function mostrarBarberos(lista) {
+    const tbody = document.getElementById("tabla-barberos");
+    tbody.innerHTML = "";
+    lista.forEach(b => tbody.appendChild(crearFila(b)));
+  }
+
+  function buscarBarbero() {
+    const texto = document.getElementById("buscar").value.toLowerCase();
+    const filtrados = barberos.filter(b => 
+      b.nombre.toLowerCase().includes(texto) ||
+      b.apellido.toLowerCase().includes(texto)
+    );
+    mostrarBarberos(filtrados);
+  }
+
+  // Cargar datos iniciales
+  document.addEventListener("DOMContentLoaded", () => {
+    mostrarBarberos(barberos);
+    document.getElementById("activos").innerText = barberos.filter(b => b.estado === "Activo").length;
+    document.getElementById("historico").innerText = barberos.length;
+  });
+</script>
+
+</body>
+</html>
