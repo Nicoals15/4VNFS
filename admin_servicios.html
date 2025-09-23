@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administrador página servicios</title>
+  <link rel="stylesheet" href="css/Admin/AdminServicios.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="contenedor">
+<!-- Barra lateral -->
+<div class="barra-lateral">
+    <img src="Imagenes/logos/Recurso 1.png" alt="Logo BarberTech" class="logo">
+        <a href="admin_inicio.html" class="boton-menu"><img src="Imagenes/iconos/inicio.svg" alt=""> Inicio</a>
+        <a href="admin_usuarios.html" class="boton-menu"><img src="Imagenes/iconos/Usuarios.png" alt=""> Usuarios</a>
+        <a href="admin_servicios.html" class="boton-menu activado"><img src="Imagenes/iconos/Servicios.png" alt=""> Servicios</a>
+        <a href="admin_reportes.html" class="boton-menu"><img src="Imagenes/iconos/reportes.png" alt=""> Reportes</a>
+        <a class="cerrar-sesion" href="login.html">Cerrar sesión</a>
+    </div>
+
+<!-- Contenido principal -->
+<div class="principal">
+    <div class="encabezado">
+        <h2>Servicios</h2>
+        <img src="Imagenes/iconos/perfil.png" alt="Perfil" width="100">
+    </div>
+
+<!-- Estadísticas generales -->
+<div class="estadisticas">
+    <div class="caja-estadistica">
+        <h3>Servicio más solicitado</h3>
+        <p>Corte clásico</p>
+    </div>
+
+    <div class="caja-estadistica">
+        <h3>Servicios realizados último mes</h3>
+        <p>40</p>
+    </div>
+</div>
+
+<!-- Historial -->
+<div class="tarjeta">
+    <h3>Historial de barberos</h3>
+
+<div style="max-height: 250px; overflow-y: auto;">
+    <table>
+        <thead>
+            <tr>
+                <th>Barbero</th>
+                <th>Cantidad servicios (mes)</th>
+                <th>Servicio más realizado</th>
+            </tr>
+
+        </thead>
+            <tbody>
+                <tr>
+                    <td>Barbero 1</td>
+                    <td>18</td>
+                    <td>Corte clásico</td>
+                </tr>
+
+            <tr>
+                <td>Barbero 2</td>
+                <td>12</td>
+                <td>Corte y barba</td>
+            </tr>
+
+            <tr>
+                <td>Barbero 3</td>
+                <td>20</td>
+                <td>Corte ejecutivo</td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Gráfica -->
+<div class="tarjeta">
+    <h3>Comparativa de servicios por barbero</h3>
+
+<div class="grafica-contenedor">
+    <canvas id="graficaServicios"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const barberos = ["Barbero 1", "Barbero 2", "Barbero 3"];
+    const servicios = [18, 12, 20];
+
+    const ctx = document.getElementById('graficaServicios').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: barberos,
+        datasets: [{
+          label: 'Cantidad de servicios en el mes',
+          data: servicios,
+          backgroundColor: '#007bff'
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: { color: "white" },
+            grid: { color: "rgba(255,255,255,0.2)" }
+          },
+          x: {
+            ticks: { color: "white" },
+            grid: { color: "rgba(255,255,255,0.2)" }
+          }
+        },
+        plugins: {
+          legend: {
+            labels: { color: "white" }
+          }
+        }
+      }
+    });
+</script>
+</body>
+</html>

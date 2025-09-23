@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administrador página reportes</title>
+  <link rel="stylesheet" href="css/Admin/AdminReportes.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  
+<div class="contenedor">
+
+<!-- Barra lateral -->
+<div class="barra-lateral">
+    <img src="Imagenes/logos/Recurso 1.png" alt="Logo BarberTech" class="logo">
+        <a href="admin_inicio.html" class="boton-menu"><img src="Imagenes/iconos/inicio.svg" alt=""> Inicio</a>
+        <a href="admin_usuarios.html" class="boton-menu"><img src="Imagenes/iconos/Usuarios.png" alt=""> Usuarios</a>
+        <a href="admin_servicios.html" class="boton-menu"><img src="Imagenes/iconos/Servicios.png" alt=""> Servicios</a>
+        <a href="admin_reportes.html" class="boton-menu activado"><img src="Imagenes/iconos/reportes.png" alt=""> Reportes</a>
+        <a class="cerrar-sesion" href="login.html">Cerrar sesión</a>
+    </div>
+
+<!-- Contenido principal -->
+<div class="principal">
+    <div class="encabezado">
+        <div>
+            <h2>Buenos días, Johan</h2>
+            <p>Luce siempre tu mejor versión</p>
+        </div>
+
+<img src="Imagenes/iconos/perfil.png" alt="Perfil" width="100">
+</div>
+
+<!-- Estadisticas -->
+<div class="estadisticas">
+    <div class="caja-estadistica">
+          <h3 id="citas">0</h3>
+          <p>Citas del día</p>
+    </div>
+
+    <div class="caja-estadistica">
+        <h3 id="pagos">0</h3>
+        <p>Pagos exitosos</p>
+    </div>
+
+    <div class="caja-estadistica">
+        <h3 id="clientes">0</h3>
+        <p>Clientes registrados</p>
+    </div>
+
+    <div class="caja-estadistica">
+        <h3 id="barberos">0</h3>
+        <p>Barberos activos</p>
+    </div>
+</div>
+
+      <a href="#" class="boton-principal">Ver más detalles</a>
+
+<!-- Reportes -->
+<div class="estadisticas" style="gap: 20px; flex-wrap: wrap;">
+
+<!-- Servicios más solicitados -->
+<div class="tarjeta" style="flex: 1; min-width: 250px;">
+    <h3>Servicios más solicitados</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Servicio</th>
+                </tr>
+            </thead>
+        <tbody>
+
+        <tr>
+            <td>31/08/2025</td>
+            <td>Corte de pelo</td>
+        </tr>
+
+        <tr>
+            <td>25/08/2025</td>
+            <td>Corte de barba</td>
+        </tr>
+
+        <tr>
+            <td>10/08/2025</td>
+            <td>Depilación de cejas</td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+
+<!-- Total de cortes -->
+<div class="tarjeta" style="flex: 1; min-width: 250px;">
+    <h3>Total de cortes</h3>
+        <canvas id="graficaCortes"></canvas>
+</div>
+
+<!-- Clientes registrados -->
+<div class="tarjeta" style="flex: 1; min-width: 250px;">
+    <h3>Clientes registrados por mes</h3>
+        <canvas id="graficaClientes"></canvas>
+</div>
+
+<!-- Pagos exitosos -->
+<div class="tarjeta" style="flex: 1; min-width: 250px; text-align:center;">
+    <h3>Pagos exitosos</h3>
+        <p style="font-size:40px; font-weight:bold;">30</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+// Datos para gráfico de cortes
+    const ctxCortes = document.getElementById('graficaCortes').getContext('2d');
+    new Chart(ctxCortes, {
+      type: 'bar',
+      data: {
+        labels: ["Corte de pelo", "Corte de barba", "Depilación de cejas"],
+        datasets: [{
+          label: 'Servicios',
+          data: [12, 8, 5],
+          backgroundColor: ['#007bff','#28a745','#ffc107']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { labels: { color: "white" } } },
+        scales: {
+          x: { ticks: { color: "white" }, grid: { color: "rgba(255,255,255,0.2)" } },
+          y: { ticks: { color: "white" }, grid: { color: "rgba(255,255,255,0.2)" } }
+        }
+      }
+    });
+
+// Datos para gráfico de clientes registrados
+    const ctxClientes = document.getElementById('graficaClientes').getContext('2d');
+    new Chart(ctxClientes, {
+      type: 'line',
+      data: {
+        labels: ["Mayo", "Junio", "Julio", "Agosto"],
+        datasets: [{
+          label: 'Clientes',
+          data: [5, 8, 12, 15],
+          borderColor: '#ff5733',
+          backgroundColor: 'rgba(255, 87, 51, 0.3)',
+          fill: true,
+          tension: 0.3
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { labels: { color: "white" } } },
+        scales: {
+          x: { ticks: { color: "white" }, grid: { color: "rgba(255,255,255,0.2)" } },
+          y: { ticks: { color: "white" }, grid: { color: "rgba(255,255,255,0.2)" } }
+        }
+      }
+    });
+</script>
+
+<script>
+// Datos de estadísticas 
+    const estadisticas = {
+      citas: 12,
+      pagos: 30,
+      clientes: 15,
+      barberos: 4
+    };
+
+    function animarValor(id, inicio, fin, duracion) {
+      const elemento = document.getElementById(id);
+      let tiempoInicio = null;
+      function paso(tiempo) {
+        if (!tiempoInicio) tiempoInicio = tiempo;
+        const progreso = Math.min((tiempo - tiempoInicio) / duracion, 1);
+        elemento.innerText = Math.floor(progreso * (fin - inicio) + inicio);
+        if (progreso < 1) {
+          window.requestAnimationFrame(paso);
+        }
+      }
+      window.requestAnimationFrame(paso);
+    }
+
+    animarValor("citas", 0, estadisticas.citas, 1500);
+    animarValor("pagos", 0, estadisticas.pagos, 1500);
+    animarValor("clientes", 0, estadisticas.clientes, 1500);
+    animarValor("barberos", 0, estadisticas.barberos, 1500);
+    animarValor("pagosTotal", 0, estadisticas.pagos, 1500);
+
+// Gráficas 
+    document.addEventListener('DOMContentLoaded', function() {
+      const ctxCortes = document.getElementById('graficaCortes').getContext('2d');
+      new Chart(ctxCortes, {
+        type: 'bar',
+        data: {
+          labels: ["Corte de pelo", "Corte de barba", "Depilación de cejas"],
+          datasets: [{
+            label: 'Cantidad de servicios',
+            data: [12, 8, 5],
+            backgroundColor: ['#007bff','#28a745','#ffc107']
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { labels: { color: "white" } } },
+          scales: {
+            x: { ticks: { color: "white" }, grid: { color: "rgba(255,255,255,0.2)" } },
+            y: { ticks: { color: "white" }, grid: { color: "rgba(255,255,255,0.2)" } }
+          }
+        }
+      });
+
+      const ctxClientes = document.getElementById('graficaClientes').getContext('2d');
+      new Chart(ctxClientes, {
+        type: 'line',
+        data: {
+          labels: ["Mayo", "Junio", "Julio", "Agosto"],
+          datasets: [{
+            label: 'Clientes',
+            data: [5, 8, 12, 15],
+            borderColor: '#ff5733',
+            backgroundColor: 'rgba(255, 87, 51, 0.3)',
+            fill: true,
+            tension: 0.3
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { labels: { color: "white" } } },
+          scales: {
+            x: { ticks: { color: "white" }, grid: { color: "rgba(255,255,255,0.2)" } },
+            y: { ticks: { color: "white" }, grid: { color: "rgba(255,255,255,0.2)" } }
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
