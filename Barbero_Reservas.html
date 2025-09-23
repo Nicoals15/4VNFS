@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservas - BarberTech</title>
+  <link rel="stylesheet" href="./css/Barbero/styles_barbero_reservas.css">
+  <script src="https://kit.fontawesome.com/a2e0e6ad5d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="dashboard">
+
+   
+     <!-- Sidebar -->
+    <aside class="sidebar">
+  <div class="logo">
+    <img src="./Imagenes/logos/Recurso 1.png" alt="Logo BarberTech">
+  </div>
+
+  <nav>
+    <a href="#" class="nav-item">
+      <span class="icon">🏠</span>
+      <span>Inicio</span>
+    </a>
+    <a href="#" class="nav-item active">
+      <span class="icon">📅</span>
+      <span>Reservas</span>
+    </a>
+    <a href="#" class="nav-item">
+      <span class="icon">🧑🏽‍💻</span>
+      <span>Clientes</span>
+    </a>
+    <a href="#" class="nav-item">
+      <span class="icon">👤</span>
+      <span>Perfil</span>
+    </a>
+  </nav>
+
+  <button class="logout">Cerrar sesión</button>
+</aside>
+
+    <!-- Contenido principal -->
+    <main class="main">
+      <header class="header">
+        <div>
+          <h1>Hola, Carlos</h1>
+          <p>Aquí puedes gestionar tus reservas</p>
+        </div>
+        <div class="profile">
+          <img src="./Imagenes/iconos/perfil.png" alt="Perfil" class="profile-pic">
+        </div>
+      </header>
+
+      <!-- Reservas confirmadas -->
+      <section class="card">
+        <h2>Reservas confirmadas</h2>
+        <ul class="reservas">
+          <li>
+            <div>
+              <strong>Andrés Gómez</strong>
+              <time>15 de septiembre, 2:00 pm</time>
+              <p>Servicio: Corte de cabello</p>
+            </div>
+            <span class="badge confirmada">Confirmada</span>
+          </li>
+          <li>
+            <div>
+              <strong>Laura Méndez</strong>
+              <time>18 de septiembre, 10:00 am</time>
+              <p>Servicio: Barba + Bigote</p>
+            </div>
+            <span class="badge confirmada">Confirmada</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Historial -->
+      <section class="card">
+        <h2>Historial de reservas</h2>
+        <table class="historial">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Cliente</th>
+              <th>Servicio</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>01/09/2025</td>
+              <td>Camila Torres</td>
+              <td>Corte de cabello</td>
+              <td>Realizada</td>
+            </tr>
+            <tr>
+              <td>25/08/2025</td>
+              <td>Felipe Ríos</td>
+              <td>Afeitado clásico</td>
+              <td>Realizada</td>
+            </tr>
+            <tr>
+              <td>10/08/2025</td>
+              <td>Santiago López</td>
+              <td>Corte + Barba</td>
+              <td>Cancelada</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
