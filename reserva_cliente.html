@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarberTech Dashboard</title>
+    <link rel="stylesheet" href="estilos/estilos.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="logo-container">
+                <img src="img/Logo azul-Photoroom.png"  class="logo">
+            </div>
+            <nav class="navigation">
+                <ul>
+                    <li>
+                        <a href="index_cliente.html">
+                            <span class="icon">🏠</span>
+                            Inicio
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="reserva_cliente.html">
+                            <span class="icon">📅</span>
+                            Reservas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="perfil_cliente.html">
+                            <span class="icon">👤</span>
+                            Perfil
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <button class="logout-button">Cerrar sesión</button>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <div class="header-text">
+                    <h1>Hola, Felipe Nicolas</h1>
+                    <p>Luce siempre tu mejor versión</p>
+                </div>
+                <div class="header-profile">
+                    <div class="profile-icon">👤</div>
+                </div>
+            </header>
+
+            <section class="booking-section">
+                <div class="booking-card">
+                    <h2>Agenda tu cita</h2>
+                    <div class="booking-calendar">
+                        <h3>Selecciona el día</h3>
+                        <img src="https://via.placeholder.com/600x300.png?text=Calendar" alt="Calendar" class="calendar-image">
+                    </div>
+                </div>
+            </section>
+            
+            <section class="barbers-section">
+                <div class="barbers-card">
+                    <h2>Selecciona el barbero</h2>
+                    <div class="barber-list">
+                        <div class="barber-item">
+                            <div class="barber-profile-icon">👤</div>
+                            <p>Barbero</p>
+                            <p>Ximena Zabala</p>
+                        </div>
+                        <div class="barber-item">
+                            <div class="barber-profile-icon">👤</div>
+                            <p>Barbero</p>
+                            <p>Niok Torres</p>
+                        </div>
+                        <div class="barber-item">
+                            <div class="barber-profile-icon">👤</div>
+                            <p>Barbero</p>
+                            <p>Carlos Alvarez</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barber Dashboard</title>
+  <link rel="stylesheet" href="./css/Barbero/styles_barber.css">
+</head>
+<body>
+  <div class="dashboard">
+    
+    <!-- Barra lateral -->
+   <aside class="sidebar">
+  <div class="logo">
+    <img src="./Imagenes/logos/Recurso 1.png" alt="Logo BarberTech">
+  </div>
+
+  <nav>
+    <a href="#" class="nav-item active">
+      <span class="icon">🏠</span>
+      <span>Inicio</span>
+    </a>
+    <a href="#" class="nav-item">
+      <span class="icon">📅</span>
+      <span>Reservas</span>
+    </a>
+    <a href="#" class="nav-item">
+      <span class="icon">👤</span>
+      <span>Perfil</span>
+    </a>
+  </nav>
+
+  <button class="logout">Cerrar sesión</button>
+</aside>
+
+
+    <!-- Contenido principal -->
+    <main class="main">
+      <header class="header">
+    <div>
+      <h1>Hola, Juan</h1>
+      <p>Luce siempre tu mejor versión</p>
+    </div>
+  <img class="profile-pic" src="./Imagenes/iconos/perfil.png" alt="Perfil">
+</header>
+
+      <!-- Próxima cita -->
+      <section class="card">
+        <h2>Próxima cita</h2>
+        <p><strong>10 de septiembre 2025</strong><br>10:00 am</p>
+        <p>Asesoría de imagen, Corte de pelo</p>
+        <div class="barber-info">
+          <img class="barber-avatar" src="./Imagenes/iconos/perfil.png">
+          <div>
+            <p>Barbero</p>
+            <strong>Carlos Álvarez</strong>
+          </div>
+          <button class="details-btn">Ver más detalles</button>
+        </div>
+      </section>
+
+      <!-- Historial -->
+      <section class="card">
+        <h2>Historial</h2>
+        <table class="history">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Servicio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>31/08/2025</td>
+              <td>Corte de pelo</td>
+            </tr>
+            <tr>
+              <td>25/08/2025</td>
+              <td>Corte de barba</td>
+            </tr>
+            <tr>
+              <td>10/08/2025</td>
+              <td>Corte de cejas</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+  </div>
+</body>
+</html>
