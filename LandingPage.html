@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilosLP.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'>
+    <title>BarberTech</title>
+</head>
+<body>
+
+<!-- Barra de navegación/ Menú -->
+<header>
+
+<nav class="menu">
+
+<div class="logo-container link" >
+    <a href="#inicio"><img src="Imagenes/logos/logo2.PNG" alt="Barber Tech Logo Pequeño" tabindex="0" class="logo5"></a>
+</div>
+
+<ul class="menu1">
+    <li><a href="#barberia" class="link">Inicio</a></li>
+    <li><a href="#barberias" class="link">Barberías</a></li>
+    <li><a href="#recomendaciones" class="link">Recomendaciones</a></li>
+    <li><a href="#contacto" class="link">Contacto</a></li>
+</ul>
+
+<div class="usuario">
+    <input type="checkbox" id="toggle-menu">
+
+
+<label for="toggle-menu" class="usuario-btn" aria-label="Menú de usuario">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+</label>
+
+  <!-- Menú desplegable -->
+<div class="menu-usuario">
+    <label for="toggle-menu" class="btn-usuario">
+        <a href="login.html">Iniciar Sesión</a>
+    </label>
+
+    <label for="toggle-menu" class="btn-usuario">
+        <a href="registro.html">Registrarse</a>
+    </label>
+    </div>
+</div>
+</nav>
+</header>
+
+<br id="inicio" class="ini">
+        <br>
+    <section class="logo1">
+        <div class="logo2" >
+            <img src="Imagenes/logos/Recurso 1.png" alt="Barber Tech Logo" class="logo">
+        </div>
+    </section>
+        
+<section class="barberias1" id="barberia" >
+<div class="barberias2">     
+<div class="barberias3">
+
+<!-- Inicio -->
+<div class="TituloInicio">
+    <h1>Tu estilo, a un clic de distancia, BarberTech tu mejor opción</h1>
+</div>
+
+<div class="containerInicio">
+    <div class="TextoInicio">
+        <p>Encuentra tu barbero ideal, explora nuestros servicios y reserva tu cita
+        cómodamente desde casa. <br> ¡Prepárate para lucir tu mejor versión!</p>
+    </div>
+
+    <div class="ImagenInicio">
+        <img src="Imagenes/Salon Barberia.jpg" alt="Barbería">
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+
+<!-- Slider "Nuestras Barberias"-->
+<section class="sliders" id="barberias">
+<div class="slider">
+    <h1>Nuestras barberías</h1>
+
+<!-- Botones -->
+    <input type="radio" name="radio-btn" id="slide1" checked>
+    <input type="radio" name="radio-btn" id="slide2">
+    <input type="radio" name="radio-btn" id="slide3">
+
+<div class="slides">
+
+<!-- Barbería 1 -->
+<div class="slide">
+    <img src="Imagenes/Barberia1.jpg" alt="Barbería 1">
+    <div class="TextoSlider">
+        <h2>Barbería los 3 niches</h2>
+        <p>Tu lugar para un corte de cabello impecable y un afeitado clásico.  
+        Ven y experimenta la tradición y el estilo.</p>
+        <a href="#">Visitar</a>
+    </div>
+</div>
+
+<!-- Barbería 2 -->
+<div class="slide">
+    <img src="Imagenes/Barberia2.jpeg" alt="Barbería 2">
+    <div class="TextoSlider">
+        <h2>Barbería El Estilo</h2>
+        <p>Disfruta de un ambiente moderno con barberos expertos listos para ti.  
+        La elegancia comienza aquí.</p>
+        <a href="#">Visitar</a>
+    </div>
+</div>
+
+<!-- Barbería 3 -->
+<div class="slide">
+    <img src="Imagenes/Barberia3.webp" alt="Barbería 3">
+    <div class="TextoSlider">
+        <h2>Barbería Tradición</h2>
+        <p>Un espacio que combina técnicas clásicas con un servicio único.  
+        Vuelve a sentir el verdadero corte de barbería.</p>
+        <a href="#">Visitar</a>
+        </div>
+    </div>
+</div> 
+
+<!-- Controles Ant/Sig -->
+<div class="controls">
+    <label class="botonesNav anterior prev-1" for="slide3" aria-label="Anterior">‹‹</label>
+    <label class="botonesNav siguiente next-1" for="slide2" aria-label="Siguiente">››</label>
+
+    <label class="botonesNav anterior prev-2" for="slide1" aria-label="Anterior">‹‹</label>
+    <label class="botonesNav siguiente next-2" for="slide3" aria-label="Siguiente">››</label>
+
+    <label class="botonesNav anterior prev-3" for="slide2" aria-label="Anterior">‹‹</label>
+    <label class="botonesNav siguiente next-3" for="slide1" aria-label="Siguiente">››</label>
+</div>
+
+<!-- Indicadores Slider -->
+<div class="navegSlider">
+    <label for="slide1" title="Slide 1"></label>
+    <label for="slide2" title="Slide 2"></label>
+    <label for="slide3" title="Slide 3"></label>
+  </div>
+</div>
+</section>
+
+<!-- Recomendaciones -->
+<section class="recomendaciones" id="recomendaciones"> 
+<div class="TituloRecom">
+    <h1>Tu estilo, a un clic de distancia, BarberTech tu mejor opción</h1>
+</div>
+
+<div class="containerRecom">
+    <div class="TextoRecom">
+        <p>Encuentra tu barbero ideal, explora nuestros servicios y reserva tu cita
+        cómodamente desde casa. <br> ¡Prepárate para lucir tu mejor versión!</p>
+    </div>
+
+    <div class="ImagenRecom">
+        <img src="Imagenes/recom.jpg" alt="Recomendaciones">
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<section class="bigotito">
+<div>
+    <img src="Imagenes/bigotito.png" alt="Bigotito">
+</div>
+</section>
+
+<!-- Footer -->
+<section class="footer">
+<footer class="piepagina" id="contacto">
+
+<!-- Columna 1 -->
+<div class="footerTexto">
+    <h3>Contáctenos</h3>
+</div>
+
+<div class="columna">
+<div class="item-contacto">
+    <i class="fab fa-whatsapp"></i>
+    <span>+57 XXX-XXX-XXXX</span>
+</div>
+
+<div class="item-contacto">
+    <i class="fas fa-envelope"></i>
+    <a href="mailto:xxxxxxxxx@gmail.com">xxxxxxxxx@gmail.com</a>
+    </div>
+</div>
+
+<!-- Columna 2 -->
+<div class="footerTexto">
+    <h3>Redes Sociales</h3>
+</div>
+
+<div class="columna">
+<div class="item-red">
+    <i class="fab fa-tiktok"></i>
+    <span>@xxxxxxxx</span>
+</div>
+
+<div class="item-red">
+    <i class="fab fa-instagram"></i>
+    <span>@xxxxxxxx</span>
+</div>
+
+<div class="item-red">
+    <i class="fab fa-twitter"></i>
+    <span>@xxxxxxxx</span>
+    </div>
+</div>
+
+<!-- Columna 3 -->
+<div class="columna sobre-nosotros">
+    <h3>Sobre Nosotros</h3>
+    <p> Innovamos la forma de gestionar y reservar citas en barberías de Bogotá, conectando clientes y barberos de manera rápida y sencilla.</p>
+</div>
+</footer>
+</section>
+</body>
+</html>

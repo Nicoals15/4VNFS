@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/Admin/AdminInicio.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Administrador Página Inicial</title>
+</head>
+<body>
+
+<div class="contenedor">
+
+<!-- Barra lateral -->
+<div class="barra-lateral">
+    <img src="Imagenes/logos/Recurso 1.png" alt="Logo BarberTech" class="logo">
+
+<a class="boton-menu activado" href="admin_inicio.html">
+    <img src="Imagenes/iconos/inicio.svg" alt=""> Inicio
+</a>
+
+<a class="boton-menu" href="admin_usuarios.html">
+    <img src="Imagenes/iconos/Usuarios.png" alt=""> Usuarios
+</a>
+
+<a class="boton-menu" href="admin_servicios.html">
+    <img src="Imagenes/iconos/Servicios.png" alt=""> Servicios
+</a>
+
+<a class="boton-menu" href="admin_reportes.html">
+    <img src="Imagenes/iconos/reportes.png" alt=""> Reportes
+</a>
+
+<a class="cerrar-sesion" href="login.html">
+  Cerrar sesión
+</a>
+
+
+</div>
+
+<!-- Inicio -->
+<div class="principal">
+    <div class="encabezado">
+        <div>
+            <h2>Buenos días, Johan</h2>
+            <p>Luce siempre tu mejor versión</p>
+        </div>
+    <img src="Imagenes/iconos/perfil.png" alt="Perfil" width="100">
+</div>
+
+<!-- Estadísticas -->
+<div class="estadisticas">
+    <div class="caja-estadistica">
+        <h3 id="citas">0</h3>
+        <p>Citas del día</p>
+    </div>
+
+<div class="caja-estadistica">
+    <h3 id="pagos">0</h3>
+    <p>Pagos exitosos</p>
+</div>
+
+<div class="caja-estadistica">
+    <h3 id="clientes">0</h3>
+    <p>Clientes registrados</p>
+ </div>
+
+<div class="caja-estadistica">
+    <h3 id="barberos">0</h3>
+    <p>Barberos activos</p>
+    </div>
+</div>
+
+<a href="#" class="boton-principal">Ver más detalles</a>
+
+<!-- Servicios más solicitados -->
+<div class="tarjeta">
+    <h3>Servicios más solicitados</h3>
+
+    <table>
+        <tr><th>Fecha</th><th>Servicio</th></tr>
+        <tr><td>31/08/2025</td><td>Corte de cabello</td></tr>
+        <tr><td>25/08/2025</td><td>Corte de barba</td></tr>
+        <tr><td>10/08/2025</td><td>Depilación de cejas</td></tr>
+    </table>
+
+<!-- Grafica --> 
+<div class="grafica-contenedor">
+    <canvas id="graficaServicios"></canvas>
+    </div>
+</div>
+
+<!-- Tabla de usuarios -->
+<div class="tarjeta">
+    <h3>Usuarios</h3>
+
+    <table>
+        <tr><th>Nombre</th><th>Rol</th><th>Estado</th><th>Acciones</th></tr>
+        <tr><td>Felipe</td><td>Cliente</td><td>Activo</td><td><button class="boton-accion">Editar</button></td></tr>
+        <tr><td>Johan</td><td>Barbero</td><td>Inactivo</td><td><button class="boton-accion">Editar</button></td></tr>
+        <tr><td>Carlos</td><td>Barbero</td><td>Activo</td><td><button class="boton-accion">Editar</button></td></tr>
+    </table>
+    </div>
+  </div>
+</div>
+
+<script>
+
+// Datos de estadísticas
+const estadisticas = {
+    citas: 12,
+    pagos: 30,
+    clientes: 15,
+    barberos: 4
+};
+
+function animarValor(id, inicio, fin, duracion) {
+    const elemento = document.getElementById(id);
+    let tiempoInicio = null;
+    function paso(tiempo) {
+    if (!tiempoInicio) tiempoInicio = tiempo;
+    const progreso = Math.min((tiempo - tiempoInicio) / duracion, 1);
+    elemento.innerText = Math.floor(progreso * (fin - inicio) + inicio);
+    if (progreso < 1) {
+        window.requestAnimationFrame(paso);
+    }
+}
+
+window.requestAnimationFrame(paso);
+}
+    animarValor("citas", 0, estadisticas.citas, 1500);
+    animarValor("pagos", 0, estadisticas.pagos, 1500);
+    animarValor("clientes", 0, estadisticas.clientes, 1500);
+    animarValor("barberos", 0, estadisticas.barberos, 1500);
+
+    function mostrarSeccion(seccion) {
+      alert("Sección: " + seccion);
+    }
+
+// ---- Gráfica funcional con JavaScript ----
+    document.addEventListener('DOMContentLoaded', function() {
+      const ctx = document.getElementById('graficaServicios').getContext('2d');
+      const datos = {
+        labels: ['31/08/2025', '25/08/2025', '10/08/2025'],
+        datasets: [{
+          label: 'Cantidad de servicios',
+          data: [5, 3, 2], // Datooos
+          backgroundColor: 'rgba(0, 123, 255, 0.5)',
+          borderColor: 'rgba(0, 123, 255, 1)',
+          borderWidth: 1
+        }]
+      };
+      const opciones = {
+        responsive: true,
+        maintainAspectRatio: false, 
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              precision: 0
+            }
+          }
+        }
+      };
+      new Chart(ctx, {
+        type: 'bar',
+        data: datos,
+        options: opciones
+      });
+    });
+  </script>
+</body>
+</html>
+
+
