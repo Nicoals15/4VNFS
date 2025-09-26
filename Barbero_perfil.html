@@ -3,32 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clientes - BarberTech</title>
+  <title>Perfil - BarberTech</title>
   <link rel="stylesheet" href="./css/Barbero/styles_barbero_perfil.css">
   <script src="https://kit.fontawesome.com/a2e0e6ad5d.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="dashboard">
 
-  <div class="dashboard-content perfil">
-    <h3>Actualización de datos</h3>
-    <form class="perfil-form">
-      <label>Teléfono</label>
-      <input type="text" placeholder="Ingrese su teléfono">
-
-      <label>Correo</label>
-      <input type="email" placeholder="Ingrese su correo">
-
-      <label>Contraseña</label>
-      <input type="password" placeholder="Ingrese nueva contraseña">
-
-      <label>Confirmar contraseña</label>
-      <input type="password" placeholder="Repita la contraseña">
-
-      <div class="perfil-buttons">
-        <button type="button" class="btn-cancelar">Cancelar</button>
-        <button type="submit" class="btn-confirmar">Confirmar</button>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="./Imagenes/logos/Recurso 1.png" alt="Logo BarberTech">
       </div>
-    </form>
+      <nav>
+    <a href="./Barbero_inicio.html" class="nav-item">
+      <span class="icon">🏠</span>
+      <span>Inicio</span>
+    </a>
+    <a href="./Barbero_Reservas.html" class="nav-item">
+      <span class="icon">📅</span>
+      <span>Reservas</span>
+    </a>
+    <a href="./Barbero_clientes.html" class="nav-item">
+      <span class="icon">🧑🏽‍💻</span>
+      <span>Clientes</span>
+    </a>
+    <a href="./Barbero_clientes.html" class="nav-item active">
+      <span class="icon">👤</span>
+      <span>Perfil</span>
+    </a>
+  </nav>
+      <button class="logout">Cerrar sesión</button>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <header class="header">
+        <div>
+          <h1>Hola, Felipe Nicolas</h1>
+          <p>Luce siempre tu mejor versión</p>
+        </div>
+        <div class="profile">
+          <img src="./Imagenes/iconos/perfil.png" alt="Perfil" class="profile-pic">
+        </div>
+      </header>
+
+      <!-- Contenido perfil -->
+      <section class="card perfil-card">
+        <h2>Actualización de datos</h2>
+        <form class="perfil-form">
+          <label>Teléfono</label>
+          <input type="text" placeholder="Ingrese su teléfono">
+
+          <label>Correo</label>
+          <input type="email" placeholder="Ingrese su correo">
+
+          <label>Contraseña</label>
+          <input type="password" placeholder="Ingrese nueva contraseña">
+
+          <label>Confirmar contraseña</label>
+          <input type="password" placeholder="Repita la contraseña">
+
+          <div class="perfil-buttons">
+            <button type="button" class="btn cancelar">Cancelar</button>
+            <button type="submit" class="btn confirmar">Confirmar</button>
+          </div>
+        </form>
+      </section>
+    </main>
   </div>
-</div>
+</body>
+</html>
