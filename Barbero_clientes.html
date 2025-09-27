@@ -3,56 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clientes - BarberTech</title>
-  <link rel="stylesheet" href="./css/Barbero/styles_barbero_clientes.css">
-  <script src="https://kit.fontawesome.com/a2e0e6ad5d.js" crossorigin="anonymous"></script>
+  <title>BarberTech - Clientes</title>
+  <link rel="stylesheet" href="css/Barbero/styles_barbero_clientes.css">
 </head>
 <body>
-  <div class="dashboard">
+  <div class="contenedor">
 
     <!-- Sidebar -->
-    <aside class="sidebar">
-      <div class="logo">
-        <img src="./Imagenes/logos/Recurso 1.png" alt="Logo BarberTech">
-      </div>
-      <nav>
-        <nav>
-    <a href="./Barbero_inicio.html" class="nav-item">
-      <span class="icon">🏠</span>
-      <span>Inicio</span>
-    </a>
-    <a href="./Barbero_Reservas.html" class="nav-item">
-      <span class="icon">📅</span>
-      <span>Reservas</span>
-    </a>
-    <a href="./Barbero_clientes.html" class="nav-item active">
-      <span class="icon">🧑🏽‍💻</span>
-      <span>Clientes</span>
-    </a>
-    <a href="./Barbero_perfil.html" class="nav-item">
-      <span class="icon">👤</span>
-      <span>Perfil</span>
-    </a>
-  </nav>
-      </nav>
-      <button class="logout">Cerrar sesión</button>
-    </aside>
+    <div class="barra-lateral">
+      <img src="./Imagenes/logos/Recurso 1.png" alt="Logo BarberTech" class="logo">
+
+      <a href="./Barbero_inicio.html" class="boton-menu">
+        <img src="./Imagenes/iconos/inicio.svg" alt=""> Inicio
+      </a>
+      <a href="./Barbero_Reservas.html" class="boton-menu">
+        <img src="./Imagenes/iconos/reservas.png" alt=""> Reservas
+      </a>
+      <a href="./Barbero_clientes.html" class="boton-menu activado">
+        <img src="./Imagenes/iconos/clientes.png" alt=""> Clientes
+      </a>
+      <a href="./Barbero_perfil.html" class="boton-menu">
+        <img src="./Imagenes/iconos/Usuarios.png" alt=""> Perfil
+      </a>
+
+      <a class="cerrar-sesion" href="login.html">Cerrar sesión</a>
+    </div>
 
     <!-- Main -->
-    <main class="main">
-      <header class="header">
-        <div>
-          <h1>Hola, Felipe Nicolas</h1>
-          <p>Luce siempre tu mejor versión</p>
-        </div>
-        <div class="profile">
-          <img src="./Imagenes/iconos/perfil.png" alt="Perfil" class="profile-pic">
-        </div>
-      </header>
+    <div class="principal">
+      <div class="encabezado">
+        <h2>Buen día, Juan</h2>
+        <img src="./Imagenes/iconos/perfil.png" alt="Perfil" width="100">
+      </div>
 
       <!-- Clientes más recurrentes -->
-      <section class="card clientes-card">
-        <h2>Clientes más recurrentes</h2>
+      <div class="estadisticas">
+        <div class="card-estadistica">
+          <span class="numero" data-target="4">0</span>
+          <p>Clientes recurrentes</p>
+        </div>
+      </div>
+
+      <div class="tabla-contenedor">
+        <h2 style="margin-bottom:15px;">Clientes más recurrentes</h2>
         <div class="clientes-grid">
           <div class="cliente">
             <img src="./Imagenes/iconos/perfil.png" alt="Cliente" class="cliente-pic">
@@ -64,20 +57,51 @@
           </div>
           <div class="cliente">
             <img src="./Imagenes/iconos/perfil.png" alt="Cliente" class="cliente-pic">
-            <p><strong>Barba</strong><br> Carlos Alavarez</p>
+            <p><strong>Barba</strong><br> Carlos Alvarez</p>
           </div>
           <div class="cliente">
             <img src="./Imagenes/iconos/perfil.png" alt="Cliente" class="cliente-pic">
             <p><strong>Cejas</strong><br> Sara Davila</p>
           </div>
-          <div class="cliente">
-            <img src="./Imagenes/iconos/perfil.png" alt="Cliente" class="cliente-pic">
-            <p><strong></strong><br> </p>
-          </div>
         </div>
-        <button class="btn ver-mas">Ver más clientes</button>
-      </section>
-    </main>
+        <button class="boton-accion">Ver más clientes</button>
+      </div>
+    </div>
   </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll(".numero");
+
+  counters.forEach(counter => {
+    counter.innerText = "0";
+    const updateCounter = () => {
+      const target = +counter.getAttribute("data-target");
+      const count = +counter.innerText;
+
+      const increment = target / 100; 
+
+      if (count < target) {
+        counter.innerText = Math.ceil(count + increment);
+        setTimeout(updateCounter, 100);
+      } else {
+        counter.innerText = target;
+      }
+    };
+
+    updateCounter();
+  });
+});
+
+// Ejemplo para botón Ver más clientes
+const verMasBtn = document.querySelector(".boton-accion");
+
+if (verMasBtn) {
+  verMasBtn.addEventListener("click", () => {
+    alert("Aquí se mostrarán más clientes recurrentes...");
+  });
+}
+
+</script>
 </body>
 </html>

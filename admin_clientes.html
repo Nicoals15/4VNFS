@@ -9,52 +9,35 @@
 <body>
 
 <div class="contenedor">
-  <!-- Barra lateral -->
-  <div class="barra-lateral">
-    <img src="Imagenes/logos/Recurso 1.png" alt="Logo BarberTech" class="logo">
+  
+<!-- Barra lateral -->
+<div class="barra-lateral">
+  <img src="Imagenes/logos/Recurso 1.png" alt="Logo BarberTech" class="logo">
 
-    <a href="admin_inicio.html" class="boton-menu">
-      <img src="Imagenes/iconos/inicio.svg" alt=""> Inicio
-    </a>
+<a href="admin_inicio.html" class="boton-menu">
+  <img src="Imagenes/iconos/inicio.svg" alt=""> Inicio </a>
 
-    <!-- Submenú Usuarios -->
-    <div class="submenu">
-      <input type="radio" id="usuarios-toggle" name="menu" checked>
-      <label for="usuarios-toggle" class="boton-menu activado">
+<!-- Submenú Usuarios -->
+<div class="submenu">
+  <input type="checkbox" id="usuarios-toggle">
+    <label for="usuarios-toggle" class="boton-menu">
         <img src="Imagenes/iconos/Usuarios.png" alt=""> Usuarios
-      </label>
-      <div class="submenu-opciones">
-        <a href="admin_usuarios_clientes.html" class="sub-item activado">Clientes</a>
-        <a href="admin_usuarios_barberos.html" class="sub-item">Barberos</a>
-      </div>
-    </div>
+    </label>
 
-    <!-- Submenú Servicios -->
-    <div class="submenu">
-      <input type="radio" id="servicios-toggle" name="menu">
-      <label for="servicios-toggle" class="boton-menu">
-        <img src="Imagenes/iconos/Servicios.png" alt=""> Servicios
-      </label>
-      <div class="submenu-opciones">
-        <a href="admin_cortes.html" class="sub-item">Cortes</a>
-        <a href="admin_productos.html" class="sub-item">Productos</a>
-      </div>
+<div class="submenu-opciones">
+  <a href="admin_clientes.html" class="sub-item">Clientes</a>
+      <a href="admin_barberos.html" class="sub-item">Barberos</a>
     </div>
+</div>
 
-    <!-- Submenú Reportes -->
-    <div class="submenu">
-      <input type="radio" id="reportes-toggle" name="menu">
-      <label for="reportes-toggle" class="boton-menu">
-        <img src="Imagenes/iconos/reportes.png" alt=""> Reportes
-      </label>
-      <div class="submenu-opciones">
-        <a href="admin_ventas.html" class="sub-item">Ventas</a>
-        <a href="admin_asistencia.html" class="sub-item">Asistencia</a>
-      </div>
-    </div>
+<a href="admin_servicios.html" class="boton-menu">
+  <img src="Imagenes/iconos/Servicios.png" alt=""> Servicios </a>
 
-    <a class="cerrar-sesion" href="login.html">Cerrar sesión</a>
-  </div>
+<a href="admin_reportes.html" class="boton-menu">
+  <img src="Imagenes/iconos/reportes.png" alt=""> Reportes </a>
+
+<a class="cerrar-sesion" href="login.html">Cerrar sesión</a>
+</div>
 
   <!-- Contenido principal -->
   <div class="principal">
@@ -65,18 +48,19 @@
 
     <!-- Estadísticas -->
     <div class="estadisticas">
-      <div class="card-estadistica"><span class="numero" id="activos">0</span><p>Clientes Activos</p></div>
-      <div class="card-estadistica"><span class="numero" id="historico">0</span><p>Histórico de Clientes</p></div>
+      <div class="card-estadistica"><span class="numero" id="activos">0</span><p>Clientes <br> Activos</p></div>
+      <div class="card-estadistica"><span class="numero" id="historico">0</span><p>Histórico de <br>Clientes</p></div>
     </div>
 
-    <!-- Buscador -->
-    <div class="busqueda">
-      <h3>Búsqueda de Clientes</h3>
-      <div class="input-busqueda">
-        <input type="text" id="buscar" placeholder="Buscar por nombre...">
-        <button onclick="buscarCliente()">🔍</button>
-      </div>
-    </div>
+<!-- Buscador -->
+<div class="busqueda">
+  <h3>Búsqueda de Clientes</h3>
+  <div class="input-busqueda">
+    <input type="text" id="buscar" placeholder="Buscar por nombre...">
+    <button onclick="buscarCliente()">🔍</button>
+    <button onclick="limpiarBusqueda()">❌</button>
+  </div>
+</div>
 
     <!-- Tabla de clientes -->
     <div class="tabla-contenedor">
@@ -97,8 +81,11 @@
   const clientes = [
     { nombre: "Camilo", apellido: "Gómez", cedula: "1025548123", correo: "camilo@gmail.com", telefono: "3102222222", estado: "Activo" },
     { nombre: "Laura", apellido: "Martínez", cedula: "1025548999", correo: "laura@gmail.com", telefono: "3103333333", estado: "Inactivo" },
+    { nombre: "Andrés", apellido: "Torres", cedula: "1025588999", correo: "andres@gmail.com", telefono: "3201111111", estado: "Activo" },
+    { nombre: "Valentina", apellido: "Díaz", cedula: "1025599777", correo: "valentina@gmail.com", telefono: "3004444444", estado: "Activo" },
   ];
 
+  // Crear fila de tabla
   function crearFila(cliente) {
     const tr = document.createElement("tr");
     tr.innerHTML = `
@@ -112,12 +99,37 @@
     return tr;
   }
 
+  // Mostrar lista de clientes
   function mostrarClientes(lista) {
     const tbody = document.getElementById("tabla-clientes");
     tbody.innerHTML = "";
     lista.forEach(c => tbody.appendChild(crearFila(c)));
   }
 
+  // Actualizar estadísticas con animación
+  function actualizarEstadisticas(lista) {
+    const activos = lista.filter(c => c.estado === "Activo").length;
+    const historico = lista.length;
+    animarValor("activos", parseInt(document.getElementById("activos").innerText), activos, 800);
+    animarValor("historico", parseInt(document.getElementById("historico").innerText), historico, 800);
+  }
+
+  // Animación para los números
+  function animarValor(id, inicio, fin, duracion) {
+    const elemento = document.getElementById(id);
+    let tiempoInicio = null;
+
+    function paso(tiempo) {
+      if (!tiempoInicio) tiempoInicio = tiempo;
+      const progreso = Math.min((tiempo - tiempoInicio) / duracion, 1);
+      elemento.innerText = Math.floor(progreso * (fin - inicio) + inicio);
+      if (progreso < 1) window.requestAnimationFrame(paso);
+    }
+
+    window.requestAnimationFrame(paso);
+  }
+
+  // Buscar clientes
   function buscarCliente() {
     const texto = document.getElementById("buscar").value.toLowerCase();
     const filtrados = clientes.filter(c => 
@@ -125,14 +137,20 @@
       c.apellido.toLowerCase().includes(texto)
     );
     mostrarClientes(filtrados);
+    actualizarEstadisticas(filtrados);
   }
 
   // Cargar datos iniciales
   document.addEventListener("DOMContentLoaded", () => {
     mostrarClientes(clientes);
-    document.getElementById("activos").innerText = clientes.filter(c => c.estado === "Activo").length;
-    document.getElementById("historico").innerText = clientes.length;
+    actualizarEstadisticas(clientes);
   });
+
+  //Eliminar filtro de busqueda 
+  function limpiarBusqueda() {
+  document.getElementById("buscar").value = "";
+  mostrarClientes(barberos); 
+}
 </script>
 
 </body>

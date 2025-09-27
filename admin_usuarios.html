@@ -9,52 +9,35 @@
 <body>
 
 <div class="contenedor">
-  <!-- Barra lateral -->
-  <div class="barra-lateral">
-    <img src="Imagenes/logos/Recurso 1.png" alt="Logo BarberTech" class="logo">
 
-    <a href="admin_inicio.html" class="boton-menu">
-      <img src="Imagenes/iconos/inicio.svg" alt=""> Inicio
-    </a>
+<!-- Barra lateral -->
+<div class="barra-lateral">
+  <img src="Imagenes/logos/Recurso 1.png" alt="Logo BarberTech" class="logo">
 
-    <!-- Submenú Usuarios -->
-    <div class="submenu">
-      <input type="radio" id="usuarios-toggle" name="menu">
-      <label for="usuarios-toggle" class="boton-menu activado">
+<a href="admin_inicio.html" class="boton-menu">
+  <img src="Imagenes/iconos/inicio.svg" alt=""> Inicio </a>
+
+<!-- Submenú Usuarios -->
+<div class="submenu">
+  <input type="checkbox" id="usuarios-toggle">
+    <label for="usuarios-toggle" class="boton-menu">
         <img src="Imagenes/iconos/Usuarios.png" alt=""> Usuarios
-      </label>
-      <div class="submenu-opciones">
-        <a href="admin_clientes.html" class="sub-item">Clientes</a>
-        <a href="admin_barberos.html" class="sub-item">Barberos</a>
-      </div>
-    </div>
+    </label>
 
-    <!-- Submenú Servicios -->
-    <div class="submenu">
-      <input type="radio" id="servicios-toggle" name="menu">
-      <label for="servicios-toggle" class="boton-menu">
-        <img src="Imagenes/iconos/Servicios.png" alt=""> Servicios
-      </label>
-      <div class="submenu-opciones">
-        <a href="admin_cortes.html" class="sub-item">Cortes</a>
-        <a href="admin_productos.html" class="sub-item">Productos</a>
-      </div>
+<div class="submenu-opciones">
+  <a href="admin_clientes.html" class="sub-item">Clientes</a>
+      <a href="admin_barberos.html" class="sub-item">Barberos</a>
     </div>
+</div>
 
-    <!-- Submenú Reportes -->
-    <div class="submenu">
-      <input type="radio" id="reportes-toggle" name="menu">
-      <label for="reportes-toggle" class="boton-menu">
-        <img src="Imagenes/iconos/reportes.png" alt=""> Reportes
-      </label>
-      <div class="submenu-opciones">
-        <a href="admin_ventas.html" class="sub-item">Ventas</a>
-        <a href="admin_asistencia.html" class="sub-item">Asistencia</a>
-      </div>
-    </div>
+<a href="admin_servicios.html" class="boton-menu">
+  <img src="Imagenes/iconos/Servicios.png" alt=""> Servicios </a>
 
-    <a class="cerrar-sesion" href="login.html">Cerrar sesión</a>
-  </div>
+<a href="admin_reportes.html" class="boton-menu">
+  <img src="Imagenes/iconos/reportes.png" alt=""> Reportes </a>
+
+<a class="cerrar-sesion" href="login.html">Cerrar sesión</a>
+</div>
 
   <!-- Contenido principal -->
   <div class="principal">
@@ -111,15 +94,6 @@
     const tbody = document.getElementById("tabla-usuarios");
     tbody.innerHTML = "";
     lista.forEach(u => tbody.appendChild(crearFila(u)));
-  }
-
-  function filtrarUsuarios() {
-    const rol = document.getElementById("rol").value;
-    if (rol === "Todos") {
-      mostrarUsuarios(usuarios);
-    } else {
-      mostrarUsuarios(usuarios.filter(u => u.rol === rol));
-    }
   }
 
   // Estadísticas

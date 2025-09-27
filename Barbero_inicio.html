@@ -3,109 +3,77 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BarberTech Dashboard</title>
+  <title>BarberTech - Dashboard Barbero</title>
   <link rel="stylesheet" href="./css/Barbero/styles_barber.css">
-  <!-- Si quieres iconos más pro, activa Font Awesome -->
-  <script src="https://kit.fontawesome.com/a2e0e6ad5d.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div class="dashboard">
+  <div class="contenedor">
 
     <!-- Sidebar -->
-    <aside class="sidebar">
-  <div class="logo">
-    <img src="./Imagenes/logos/Recurso 1.png" alt="Logo BarberTech">
-  </div>
+    <div class="barra-lateral">
+      <img src="./Imagenes/logos/Recurso 1.png" alt="Logo BarberTech" class="logo">
 
-  <nav>
-    <a href="./Barbero_inicio.html" class="nav-item active">
-      <span class="icon">🏠</span>
-      <span>Inicio</span>
-    </a>
-    <a href="./Barbero_Reservas.html" class="nav-item">
-      <span class="icon">📅</span>
-      <span>Reservas</span>
-    </a>
-    <a href="./Barbero_clientes.html" class="nav-item">
-      <span class="icon">🧑🏽‍💻</span>
-      <span>Clientes</span>
-    </a>
-    <a href="./Barbero_perfil.html" class="nav-item">
-      <span class="icon">👤</span>
-      <span>Perfil</span>
-    </a>
-  </nav>
+      <a href="./Barbero_inicio.html" class="boton-menu activado">
+        <img src="./Imagenes/iconos/inicio.svg" alt=""> Inicio
+      </a>
+      <a href="./Barbero_Reservas.html" class="boton-menu">
+        <img src="./Imagenes/iconos/reservas.png" alt=""> Reservas
+      </a>
+      <a href="./Barbero_clientes.html" class="boton-menu">
+        <img src="./Imagenes/iconos/clientes.png" alt=""> Clientes
+      </a>
+      <a href="./Barbero_perfil.html" class="boton-menu">
+        <img src="./Imagenes/iconos/Usuarios.png" alt=""> Perfil
+      </a>
 
-  <button class="logout">Cerrar sesión</button>
-</aside>
-
+      <a class="cerrar-sesion" href="login.html">Cerrar sesión</a>
+    </div>
 
     <!-- Contenido principal -->
-    <main class="main">
-      <header class="header">
-        <div>
-          <h1>Buenos días, Juan</h1>
-          <p>Gestione su agenda hoy</p>
-        </div>
-        <div class="profile">
-          <img src="./Imagenes/iconos/perfil.png" alt="Perfil" class="profile-pic">
-        </div>
-      </header>
+    <div class="principal">
+      <!-- Encabezado -->
+      <div class="encabezado">
+        <h2>Buen día, Juan</h2>
+        <img src="./Imagenes/iconos/perfil.png" alt="Perfil" width="100">
+      </div>
 
-      <!-- Próxima cita + reseñas + total citas -->
-      <section class="top-grid">
-        <!-- Próxima cita -->
-        <div class="card">
-          <h2>Próxima cita</h2>
-          <ul class="appointments">
-            <li>
-              <div>
-                <strong>María López</strong>
-                <time>2:00 pm</time>
-              </div>
-              <span class="badge pending">Pendiente</span>
-              <button class="btn-icon"><i class="fas fa-ellipsis-h"></i></button>
-            </li>
-            <li>
-              <div>
-                <strong>Pedro Ruiz</strong>
-                <time>11:30 am</time>
-              </div>
-              <span class="badge done">Realizada</span>
-              <button class="btn-icon"><i class="fas fa-ellipsis-h"></i></button>
-            </li>
-          </ul>
+      <!-- Estadísticas principales -->
+      <div class="estadisticas">
+        <div class="caja-estadistica">
+          <h3>Próxima cita</h3>
+          <p><strong>María López</strong> <br> 2:00 pm <br> <span style="color:#ff9800;">Pendiente</span></p>
         </div>
+        <div class="caja-estadistica">
+          <h3>Siguiente cita</h3>
+          <p><strong>Pedro Ruiz</strong> <br> 11:30 am <br> <span style="color:#4caf50;">Realizada</span></p>
+        </div>
+      </div>
 
-        <!-- Reseñas y total citas -->
-        <div class="side-cards">
-          <div class="card">
-            <h3>Porcentaje de reseñas</h3>
-            <div class="rating">
-              <span>4.8</span>
-              <span class="stars">★★★★★</span>
-            </div>
-          </div>
-          <div class="card">
-            <h3>Total de citas en el mes</h3>
-            <div class="big">22</div>
-            <p>Citas agendadas</p>
-          </div>
+      <!-- Tarjetas de información -->
+      <div class="tarjeta">
+        <h3>Porcentaje de reseñas</h3>
+        <div class="rating">
+          <span style="font-size:25px; font-weight:bold;">4.8</span>
+          <span class="stars">★★★★★</span>
         </div>
-      </section>
+      </div>
 
-      <!-- KPIs -->
-      <section class="kpis">
-        <div class="card kpi">
-          <h3>Depósito total</h3>
-          <div class="value">$450.000</div>
-        </div>
-        <div class="card kpi">
-          <h3>Clientes</h3>
-          <div class="value">45</div>
-        </div>
-      </section>
-    </main>
+      <div class="tarjeta">
+        <h3>Total de citas en el mes</h3>
+        <p style="font-size:20px; font-weight:bold; text-align: center;">22</p>
+        <p>Citas agendadas</p>
+      </div>
+
+      <div class="tarjeta">
+        <h3>Depósito total</h3>
+        <p style="font-size:20px; font-weight:bold;">$450.000</p>
+      </div>
+
+      <div class="tarjeta">
+        <h3>Clientes</h3>
+        <p style="font-size:20px; font-weight:bold;">45</p>
+      </div>
+    </div>
   </div>
 </body>
 </html>

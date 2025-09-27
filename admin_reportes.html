@@ -13,13 +13,32 @@
 
 <!-- Barra lateral -->
 <div class="barra-lateral">
-    <img src="Imagenes/logos/Recurso 1.png" alt="Logo BarberTech" class="logo">
-        <a href="admin_inicio.html" class="boton-menu"><img src="Imagenes/iconos/inicio.svg" alt=""> Inicio</a>
-        <a href="admin_usuarios.html" class="boton-menu"><img src="Imagenes/iconos/Usuarios.png" alt=""> Usuarios</a>
-        <a href="admin_servicios.html" class="boton-menu"><img src="Imagenes/iconos/Servicios.png" alt=""> Servicios</a>
-        <a href="admin_reportes.html" class="boton-menu activado"><img src="Imagenes/iconos/reportes.png" alt=""> Reportes</a>
-        <a class="cerrar-sesion" href="login.html">Cerrar sesión</a>
+  <img src="Imagenes/logos/Recurso 1.png" alt="Logo BarberTech" class="logo">
+
+<a href="admin_inicio.html" class="boton-menu">
+  <img src="Imagenes/iconos/inicio.svg" alt=""> Inicio </a>
+
+<!-- Submenú Usuarios -->
+<div class="submenu">
+  <input type="checkbox" id="usuarios-toggle">
+    <label for="usuarios-toggle" class="boton-menu">
+        <img src="Imagenes/iconos/Usuarios.png" alt=""> Usuarios
+    </label>
+
+<div class="submenu-opciones">
+  <a href="admin_clientes.html" class="sub-item">Clientes</a>
+      <a href="admin_barberos.html" class="sub-item">Barberos</a>
     </div>
+</div>
+
+<a href="admin_servicios.html" class="boton-menu">
+  <img src="Imagenes/iconos/Servicios.png" alt=""> Servicios </a>
+
+<a href="admin_reportes.html" class="boton-menu">
+  <img src="Imagenes/iconos/reportes.png" alt=""> Reportes </a>
+
+<a class="cerrar-sesion" href="login.html">Cerrar sesión</a>
+</div>
 
 <!-- Contenido principal -->
 <div class="principal">

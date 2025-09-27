@@ -5,59 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reservas - BarberTech</title>
   <link rel="stylesheet" href="./css/Barbero/styles_barbero_reservas.css">
-  <script src="https://kit.fontawesome.com/a2e0e6ad5d.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div class="dashboard">
+  <div class="contenedor">
 
-   
-     <!-- Sidebar -->
-    <aside class="sidebar">
-  <div class="logo">
-    <img src="./Imagenes/logos/Recurso 1.png" alt="Logo BarberTech">
-  </div>
+    <!-- Sidebar -->
+    <div class="barra-lateral">
+      <img src="./Imagenes/logos/Recurso 1.png" alt="Logo BarberTech" class="logo">
 
-  <nav>
-    <a href="./Barbero_inicio.html" class="nav-item">
-      <span class="icon">🏠</span>
-      <span>Inicio</span>
-    </a>
-    <a href="./Barbero_Reservas.html" class="nav-item active">
-      <span class="icon">📅</span>
-      <span>Reservas</span>
-    </a>
-    <a href="./Barbero_clientes.html" class="nav-item">
-      <span class="icon">🧑🏽‍💻</span>
-      <span>Clientes</span>
-    </a>
-    <a href="./Barbero_perfil.html" class="nav-item">
-      <span class="icon">👤</span>
-      <span>Perfil</span>
-    </a>
-  </nav>
+      <a href="./Barbero_inicio.html" class="boton-menu">
+        <img src="./Imagenes/iconos/inicio.svg" alt=""> Inicio
+      </a>
+      <a href="./Barbero_Reservas.html" class="boton-menu activado">
+        <img src="./Imagenes/iconos/reservas.png" alt=""> Reservas
+      </a>
+      <a href="./Barbero_clientes.html" class="boton-menu">
+        <img src="./Imagenes/iconos/clientes.png" alt=""> Clientes
+      </a>
+      <a href="./Barbero_perfil.html" class="boton-menu">
+        <img src="./Imagenes/iconos/Usuarios.png" alt=""> Perfil
+      </a>
 
-  <button class="logout">Cerrar sesión</button>
-</aside>
+      <a class="cerrar-sesion" href="login.html">Cerrar sesión</a>
+    </div>
 
     <!-- Contenido principal -->
-    <main class="main">
-      <header class="header">
-        <div>
-          <h1>Hola, Carlos</h1>
-          <p>Aquí puedes gestionar tus reservas</p>
-        </div>
-        <div class="profile">
-          <img src="./Imagenes/iconos/perfil.png" alt="Perfil" class="profile-pic">
-        </div>
-      </header>
+    <div class="principal">
+      <!-- Encabezado -->
+      <div class="encabezado">
+        <h2>Buen día, Juan</h2>
+        <img src="./Imagenes/iconos/perfil.png" alt="Perfil" width="100">
+      </div>
 
       <!-- Reservas confirmadas -->
-      <section class="card">
-        <h2>Reservas confirmadas</h2>
+      <div class="tarjeta">
+        <h3>Reservas confirmadas</h3>
         <ul class="reservas">
           <li>
             <div>
-              <strong>Andrés Gómez</strong>
+              <strong>Andrés Gómez</strong><br>
               <time>15 de septiembre, 2:00 pm</time>
               <p>Servicio: Corte de cabello</p>
             </div>
@@ -65,18 +51,18 @@
           </li>
           <li>
             <div>
-              <strong>Laura Méndez</strong>
+              <strong>Laura Méndez</strong><br>
               <time>18 de septiembre, 10:00 am</time>
               <p>Servicio: Barba + Bigote</p>
             </div>
             <span class="badge confirmada">Confirmada</span>
           </li>
         </ul>
-      </section>
+      </div>
 
       <!-- Historial -->
-      <section class="card">
-        <h2>Historial de reservas</h2>
+      <div class="tarjeta">
+        <h3>Historial de reservas</h3>
         <table class="historial">
           <thead>
             <tr>
@@ -107,8 +93,8 @@
             </tr>
           </tbody>
         </table>
-      </section>
-    </main>
+      </div>
+    </div>
   </div>
 </body>
 </html>

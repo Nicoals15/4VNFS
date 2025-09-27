@@ -19,9 +19,18 @@
     <img src="Imagenes/iconos/inicio.svg" alt=""> Inicio
 </a>
 
-<a class="boton-menu" href="admin_usuarios.html">
-    <img src="Imagenes/iconos/Usuarios.png" alt=""> Usuarios
-</a>
+<!-- Submenú Usuarios -->
+<div class="submenu">
+  <input type="checkbox" id="usuarios-toggle">
+    <label for="usuarios-toggle" class="boton-menu">
+        <img src="Imagenes/iconos/Usuarios.png" alt=""> Usuarios
+    </label>
+
+<div class="submenu-opciones">
+  <a href="admin_clientes.html" class="sub-item">Clientes</a>
+      <a href="admin_barberos.html" class="sub-item">Barberos</a>
+    </div>
+</div>
 
 <a class="boton-menu" href="admin_servicios.html">
     <img src="Imagenes/iconos/Servicios.png" alt=""> Servicios
